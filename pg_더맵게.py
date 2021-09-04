@@ -1,31 +1,26 @@
 # scoville	            K	return
 # [1, 2, 3, 9, 10, 12]	7	2
 
-
+import heapq
 def solution(scoville, K):
 
-    reverse_list = sorted(scoville,reverse=True)
 
     answer = 0
+    heapq.heapify(scoville)
+    while scoville[0] < K:
 
-    while  reverse_list[-1] < K:
-        root_node, end_node = 0, len(reverse_list) - 1
-        # print('node',root_node, end_node)
-        if len(reverse_list) > 1:
+        if len(scoville) >  1:
+            # print('1',scoville)
+            answer += 1
 
-            scoed = reverse_list[end_node] + (reverse_list[end_node - 1] * 2)
-
-            reverse_list[end_node] = scoed
-            reverse_list.pop(end_node-1)
-
-            # print(reverse_list,100)
-
-            if reverse_list[-1] > reverse_list[-2]:
-                reverse_list[-1],reverse_list[-2] = reverse_list[-2],reverse_list[-1]
+            first = heapq.heappop(scoville)
+            second = heapq.heappop(scoville)
+            sconum = first + (second * 2)
+            heapq.heappush(scoville,sconum)
+            # print('2',scoville)
 
         else:
-            return reverse_list
-        answer += 1
+            return -1
     return answer
 
 
