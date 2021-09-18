@@ -1,10 +1,17 @@
 # 2
-# 'I am happy today'
-# 'We want to win the first prize'
+# I am happy today
+# We want to win the first prize
 
 
 n = int(input())
 for _ in range(n):
-    a = list(map(str,input().split(" ")))
-    print(*[x[::-1] for x in a])
-
+    word = input()
+    word += " "
+    stack = []
+    for i in word:
+        if i != " ":
+            stack.append(i)
+        else:
+            while stack:
+                print(stack.pop(),end="")
+            print(" ")
