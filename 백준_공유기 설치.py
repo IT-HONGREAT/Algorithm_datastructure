@@ -13,7 +13,7 @@ for i in range(N):
     house.append(int(input()))
 house = sorted(house)
 
-min_gap = house[1] - house[0]  #초기 8
+min_gap = 1  #초기 8
 max_gap = house[-1] - house[0] #초기 1
 result = 0
 
@@ -34,8 +34,5 @@ while min_gap <= max_gap:
         max_gap = mid -1
 
 
-# print(min_gap)
-# print(max_gap)
-# print(house)
 print(result)
 
