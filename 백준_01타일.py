@@ -1,6 +1,6 @@
 n = int(input())
 
-tile = [0]*1000000
+tile = [0]*1000001
 
 tile[1] = 1
 tile[2] = 2
