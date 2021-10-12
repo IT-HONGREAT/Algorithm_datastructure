@@ -50,6 +50,20 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
+    #링크드리스트를 문자열로 정리
+    def __str__(self):
+        res_str = "|"
+        iterator3 = self.head
+
+        while iterator3 is not None:
+            res_str += f'{iterator3.data} |'
+            iterator3 = iterator3.next
+
+        return res_str
+
+
+
+
 new_list = LinkedList()
 
 new_list.append(2)
@@ -57,10 +71,11 @@ new_list.append(4)
 new_list.append(6)
 new_list.append(8)
 new_list.append(10)
+print("문자열로 출력된 링크드 리스트 : " , new_list)
 
-iterator2 = new_list.head
-
-while iterator2 is not None:
-    print("링크드리스트 추가 후 출력 : " ,iterator2.data)
-    print("다음데이터 : ",iterator2.next)
-    iterator2 = iterator2.next
+# iterator2 = new_list.head
+#
+# while iterator2 is not None:
+#     print("링크드리스트 추가 후 출력 : " ,iterator2.data)
+#     print("다음데이터 : ",iterator2.next)
+#     iterator2 = iterator2.next
