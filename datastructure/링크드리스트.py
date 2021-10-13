@@ -24,18 +24,31 @@ node_4.next = tail_node
 #기본 링크드 리스트 출력
 iterator = head_node
 
+
+
 while iterator is not None:
     print("데이터출력 : ",iterator.data)
     print("다음데이터 : ",iterator.next)
     iterator = iterator.next
 
+print("====="*20)
 
-# 링크드리스트 클래스 생성(단순히 노드추가 함수만 구현.)
+# 링크드리스트 클래스 생성(단순히 노드추가 함수만 구현. -> 노드 찾는 함수 추가)
 class LinkedList:
 
     def __init__(self):
         self.head = None
         self.tail = None
+
+    def find_node_at(self,index):
+        #파라미터 인덱스의 위치에 있는 노드 출력
+        iterator3 = self.head
+
+        for _ in range(index):
+            iterator3 = iterator3.next
+
+            return iterator3
+
 
     def append(self,data):  #링크드리스트에 데이터를 넣어주자.
         #새로운 노드 설정
@@ -72,6 +85,9 @@ new_list.append(6)
 new_list.append(8)
 new_list.append(10)
 print("문자열로 출력된 링크드 리스트 : " , new_list)
+
+print("원하는 노드의 인덱스 값을 넣으면 노드값이 출력 : ", new_list.find_node_at(3).data)
+
 
 # iterator2 = new_list.head
 #
