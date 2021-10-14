@@ -49,6 +49,19 @@ class LinkedList:
 
             return iterator3
 
+    def find_node_with_data(self, data):
+        """링크드 리스트에서 탐색 연산 메소드. 단, 해당 노드가 없으면 None을 리턴한다"""
+
+        iterator3 = self.head
+
+        while iterator3 is not None:
+
+            if iterator3.data == data:
+                return iterator3
+            iterator3 = iterator3.next
+
+        return None
+
 
     def append(self,data):  #링크드리스트에 데이터를 넣어주자.
         #새로운 노드 설정
@@ -89,6 +102,20 @@ print("문자열로 출력된 링크드 리스트 : " , new_list)
 print("원하는 노드의 인덱스 값을 넣으면 노드값이 출력 : ", new_list.find_node_at(3).data)
 
 
+linked_list = LinkedList()
+
+# 여러 데이터를 링크드 리스트 마지막에 추가
+linked_list.append(2)
+linked_list.append(3)
+linked_list.append(5)
+linked_list.append(7)
+linked_list.append(11)
+node_with_11 = linked_list.find_node_with_data(11)
+
+if not node_with_11 is None:
+    print(node_with_11.data)
+else:
+    print("11를 갖는 노드는 없습니다")
 # iterator2 = new_list.head
 #
 # while iterator2 is not None:
