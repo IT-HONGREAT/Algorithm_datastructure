@@ -39,6 +39,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
+        self.index = None
 
     def insert_after(self, previous_node, data):
         """ 링크드 리스트에서 노드 사이에 새로운 노드 추가"""
@@ -60,7 +61,7 @@ class LinkedList:
         for _ in range(index):
             iterator = iterator.next
 
-            return iterator
+        return iterator
 
     def find_node_with_data(self, data):
         """링크드 리스트에서 탐색 연산 메소드. 단, 해당 노드가 없으면 None을 리턴한다"""
@@ -146,8 +147,9 @@ my_list.append(7)
 print("my_list : ",my_list)
 
 node_2 = my_list.find_node_at(2)
-my_list.insert_after(node_2,6)
+print("node_2 : ", node_2.data)
 
+my_list.insert_after(node_2,6)
 print(my_list)
 
 node_4 = my_list.find_node_at(4)
