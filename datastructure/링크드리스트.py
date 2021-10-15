@@ -69,6 +69,21 @@ class LinkedList:
         #지워주는 노드 리턴
         return data
 
+    def pop_left(self):
+        """맨 앞부터 노드삭제"""
+        pop = self.head.data
+
+        #리스트에 노드가 하나 밖에 없을 때 => 헤드==테일
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+
+        else:
+            self.head = self.head.next
+
+        return pop
+
+
     def find_node_at(self,index):
         #파라미터 인덱스의 위치에 있는 노드 출력
         iterator = self.head
@@ -195,3 +210,21 @@ linked_list.prepend(3)
 linked_list.prepend(2)
 
 print(linked_list)
+
+print("====="*20)
+print(linked_list)
+print(linked_list.pop_left())
+
+print(linked_list)
+print(linked_list.pop_left())
+
+print(linked_list)
+print(linked_list.pop_left())
+
+print(linked_list)
+print(linked_list.pop_left())
+
+
+print(linked_list)
+print(linked_list.head.data)
+print(linked_list.tail.data)
