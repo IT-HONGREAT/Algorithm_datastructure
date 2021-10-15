@@ -54,6 +54,21 @@ class LinkedList:
             new_node.next = previous_node.next
             previous_node.next = new_node
 
+
+    def delete_after(self,previous_node):
+        """삭제 연산 추가"""
+        data = previous_node.next.data
+        # 지울 노드가 tail 이냐 아니냐로 나누기
+        if previous_node.next is self.tail:
+            previous_node.next = None
+            self.tail = previous_node
+
+        else:
+            previous_node.next = previous_node.next.next
+
+        #지워주는 노드 리턴
+        return data
+
     def find_node_at(self,index):
         #파라미터 인덱스의 위치에 있는 노드 출력
         iterator = self.head
@@ -162,10 +177,10 @@ print("node_2 : ", node_2.data)
 my_list.insert_after(node_2,6)
 print(my_list)
 
-node_4 = my_list.find_node_at(4)
-print("node_4 : ", node_4.data)
+node_3 = my_list.find_node_at(3)
+print("node_3 : ", node_3.data)
 
-my_list.insert_after(node_4,10)
+my_list.delete_after(node_3)
 print(my_list)
 
 print("====="*20)
