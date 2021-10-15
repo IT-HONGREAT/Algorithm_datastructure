@@ -76,6 +76,16 @@ class LinkedList:
 
         return None
 
+    def prepend(self, data):
+        """링크드 리스트의 가장 앞에 데이터 삽입"""
+        new_node = Node(data)
+        if self.head is None:  # 리스트에 아무것도 없는 경우이다.
+            self.head = new_node
+            self.tail = self.head
+        elif self.head is not None:  # 리스트에 뭐라도 있는경우는 헤드를 한칸뒤로 미뤄주면 된다.
+            new_node.next = self.head
+            self.head = new_node
+
 
     def append(self,data):  #링크드리스트에 데이터를 넣어주자.
         #새로운 노드 설정
@@ -157,3 +167,16 @@ print("node_4 : ", node_4.data)
 
 my_list.insert_after(node_4,10)
 print(my_list)
+
+print("====="*20)
+
+linked_list = LinkedList()
+
+# 여러 데이터를 링크드 리스트 앞에 추가
+linked_list.prepend(11)
+linked_list.prepend(7)
+linked_list.prepend(5)
+linked_list.prepend(3)
+linked_list.prepend(2)
+
+print(linked_list)
