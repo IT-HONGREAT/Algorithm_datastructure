@@ -14,7 +14,6 @@ def solution(C, B):
     sec = 1
     q = [B]
     result = 0
-    not_found = True
     while True:
         C += sec
 
